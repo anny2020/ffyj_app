@@ -130,8 +130,8 @@ class InManagementPage(Base):
 
 
     def stability_status(self):
-        if not self.is_displayed(self._ele_stability_status):
-            self.slipe()
+        # if not self.is_displayed(self._ele_stability_status):
+        self.slipe()
         time.sleep(5)
         self.find_and_click(self._ele_stability_status)
         self.find_and_click(self._ele_stability_value)

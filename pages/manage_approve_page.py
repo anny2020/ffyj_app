@@ -1,3 +1,5 @@
+import time
+
 from appium.webdriver.common.mobileby import MobileBy
 
 from pages.base_page import Base
@@ -30,8 +32,9 @@ class ManageApprovePage(Base):
         return self
 
     def click_complete(self):
-        if not self.is_displayed(self._ele_complete):
-            self.slipe()
+        # if not self.is_displayed(self._ele_complete):
+        self.slipe()
+        time.sleep(5)
         self.find_and_click(self._ele_complete)
         from pages.unchecked_page import UncheckedPage
         return UncheckedPage(self.driver)

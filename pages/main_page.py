@@ -53,9 +53,9 @@ class MainPage(Base):
     def goto_warning_detail(self):
         elements = self.find_elements(self._ele_warning)
         elements[-1].click()
-        return WarningDetailPage(self.driver)
+        return (self.driver)
 
-
+    WarningDetailPage
     #待走访
     def goto_unvisited(self):
         self.find_and_click(self._ele_unvisited)

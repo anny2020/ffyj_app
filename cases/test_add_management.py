@@ -24,7 +24,7 @@ class TestAddManagement:
                              yaml.safe_load(open("./datas/data.yml",encoding='utf-8'))['add_management'])
     def test_add(self,username,passwd,user_idcard,reason,management_reason,measures,address,phone,assert_content):
         title = self.main.login(f"{username}",f"{passwd}").goto_in_manage().search(f"{user_idcard}").add_management()\
-            .source().demand().level().member_type().member_label().group().reason(f"reason").management_reason(f"{management_reason}")\
+            .source().demand().level().member_type().member_label().group().reason(f"{reason}").management_reason(f"{management_reason}")\
             .control_measures(f"{measures}").live_address(f"{address}").phone(f"{phone}").status().stability_status()\
             .select_leader().submit().get_title()
         hamcrest.assert_that(title,hamcrest.contains_string(f"{assert_content}"))
