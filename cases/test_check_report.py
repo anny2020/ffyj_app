@@ -19,7 +19,7 @@ class TestGroupWarning():
 
     @allure.story('新增核查')
     @pytest.mark.parametrize(['username','passwd','user_idcard','place','detailed_place','described','tips'],
-                             yaml.safe_load(open("../datas/data.yml",encoding='utf-8'))['check_report'])
+                             yaml.safe_load(open("./datas/data.yml",encoding='utf-8'))['check_report'])
     def test_check_report(self,username,passwd,user_idcard,place,detailed_place,described,tips):
         result = self.main.login(f"{username}",f"{passwd}").goto_check_report().search(f"{user_idcard}").check_report()\
         .place(f"{place}").detailed_place(f"{detailed_place}").handle().situation_described(f"{described}").submit().get_toast()
