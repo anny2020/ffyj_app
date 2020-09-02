@@ -1,3 +1,4 @@
+import os
 
 import allure
 import pytest
