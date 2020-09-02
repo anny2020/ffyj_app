@@ -21,7 +21,7 @@ class TestAddManagement:
 
     @allure.story("新增管理")
     @pytest.mark.parametrize(['username','passwd','user_idcard','reason','management_reason','measures','address','phone','assert_content'],
-                             yaml.safe_load(open("./datas/data.yml",encoding='utf-8'))['add_management'])
+                             yaml.safe_load(open("../datas/data.yml",encoding='utf-8'))['add_management'])
     def test_add(self,username,passwd,user_idcard,reason,management_reason,measures,address,phone,assert_content):
         title = self.main.login(f"{username}",f"{passwd}").goto_in_manage().search(f"{user_idcard}").add_management()\
             .source().demand().level().member_type().member_label().group().reason(f"{reason}").management_reason(f"{management_reason}")\
@@ -33,7 +33,7 @@ class TestAddManagement:
     @allure.story('所长审批')
     @pytest.mark.dependency(name='test_add')
     @pytest.mark.parametrize(["username","passwd","comments","assert_content"],
-                             yaml.safe_load(open("./datas/data.yml",encoding='utf-8'))['add_approve_1'])
+                             yaml.safe_load(open("../datas/data.yml",encoding='utf-8'))['add_approve_1'])
     def test_approve_agree(self,username,passwd,comments,assert_content):
         result = self.main.login(f"{username}",f"{passwd}").goto_unchecked().goto_approve_detail().select_leader()\
             .input_comments(f"{comments}").click_complete().get_toast()
@@ -43,7 +43,7 @@ class TestAddManagement:
     @allure.story('局长审批')
     @pytest.mark.dependency(name='test_add')
     @pytest.mark.parametrize(["username","passwd","comments","assert_content"],
-                             yaml.safe_load(open("./datas/data.yml",encoding='utf-8'))['add_approve_2'])
+                             yaml.safe_load(open("../datas/data.yml",encoding='utf-8'))['add_approve_2'])
 
     def test_approve_disagree(self,username,passwd,comments,assert_content):
         result = self.main.login(f"{username}",f"{passwd}").goto_unchecked().goto_approve_detail().input_comments(f"{comments}")\

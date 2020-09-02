@@ -20,7 +20,7 @@ class TestRegistration:
 
     @allure.story('新增登记')
     @pytest.mark.parametrize(['username','passwd','user_idcard','demands','tips'],
-                             yaml.safe_load(open('./datas/data.yml',encoding='utf-8'))['registration'])
+                             yaml.safe_load(open('../datas/data.yml',encoding='utf-8'))['registration'])
     def test_registration(self,username,passwd,user_idcard,demands,tips):
         result = self.main.login(f"{username}",f"{passwd}").goto_registration().search(f"{user_idcard}").registration()\
         .type().date().live_status().demands(f"{demands}").submit().get_toast()

@@ -1,5 +1,6 @@
 import allure
 import yaml
+import hamcrest
 
 from pages.app import BaseTest
 from hamcrest import assert_that,contains_string
