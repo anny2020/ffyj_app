@@ -18,7 +18,7 @@ class TestAddStrike():
         self.app.close()
 
     @allure.story('新增处理')
-    # @pytest.mark.skip("cannot take pictures")
+    @pytest.mark.skip("cannot take pictures")
     @pytest.mark.parametrize(['username','passwd','user_idcard','reason','remarks','tips'],
                              yaml.safe_load(open("../datas/data.yml",encoding='utf-8'))['strike'])
     def test_add_strike(self,username,passwd,user_idcard,reason,remarks,tips):
